@@ -7,7 +7,7 @@ function App() {
   const [userMessage, setuserMessage] = useState('');
   const [generatedMessage, setgeneratedMessage] = useState('lore');
 
-  const API_KEY = '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';
+  const API_KEY = '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';
   const configuration = new Configuration({
     apiKey: API_KEY,
   });
