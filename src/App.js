@@ -15,8 +15,14 @@ function App() {
   const openai = new OpenAIApi(configuration);
   const chatgpt = async (ask) => {
     const completion = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "assistant", content: ask }],
+      model: "gpt-3.5-turbo",//model engiine for chat
+      messages: [{ role: "assistant", content: ask }],//chat data and content role may be assisnent ,user,system,
+      temperature:1,//default 1 temperature define the randomness of data range[0,2]
+      top_p:0.1, //alternate if temperature which load keywards with mass
+      n:1,//no of genrated message increase in choice 
+      max_tokens:100,//how many max words or token
+      
+
     });
     console.log(completion)
     const generatedText = await completion.data.choices[0].message.content;
